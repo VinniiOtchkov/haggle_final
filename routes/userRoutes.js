@@ -55,8 +55,8 @@ router.get('/', function(req, res, next) {
         selling: users[0],
         buying: users[1],
         users: users[2]
-      })
-    })
+      });
+    });
   } else {
     res.redirect('/user/login_redirect');
   }
@@ -75,8 +75,8 @@ router.get('/:id/remove', function(req, res, next) {
 /* logging out User. */
 router.get('/logout', function(req, res) {
   req.logout();
-  res.redirect('/')
-})
+  res.redirect('/');
+});
 
 /* Creates New User. */
 router.post('/new', function(req, res, next) {
@@ -96,7 +96,7 @@ router.post('/new', function(req, res, next) {
             .max('id')
             .then(function() {
               res.redirect('/');
-            })
+            });
         });
     });
   });
@@ -108,7 +108,7 @@ router.post('/:id/update', function(req, res) {
     .update(req.body)
     .where('id', req.user.id)
     .then(function(users) {
-      res.redirect(`/${req.user.id}`)
+      res.redirect(`/${req.user.id}`);
     });
 });
 

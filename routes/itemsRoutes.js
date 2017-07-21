@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var knex = require('../db/knex');
 
+
 /* GET all items by location. */
 router.post('/', function(req, res, next) {
   knex('items_by_location')
@@ -32,17 +33,19 @@ router.post('/search', function(req, res, next) {
 router.get('/addItem', function(req, res, next) {
   var items = {};
   res.render('addItem');
-})
+});
 
 // /* Remove Item. */
 router.get('/remove/:id', function(req, res, next) {
+  console.log(req.body.id);
   knex('items')
-    .update('sold', true)
+    .delete()
     .where('id', req.body.id)
     .then(function() {
       res.redirect('/user');
-    })
-})
+    });
+});
+
 
 // /* Update Single Item. */
 router.post('/:id/update', function(req, res, next) {
@@ -50,9 +53,9 @@ router.post('/:id/update', function(req, res, next) {
     .update(req.body)
     .where('id', req.body.id)
     .then(function(items) {
-      res.redirect('/user' + req.user.id)
-    })
-})
+      res.redirect('/user' + req.user.id);
+    });
+});
 /* Add new Item. */
 router.post('/addItem', function(req, res, next) {
   knex('items')
@@ -98,9 +101,9 @@ router.get('/:id', function(req, res, next) {
     .then(function(items) {
       res.render('itemID', {
         items: items[0]
-      })
-    })
-})
+      });
+    });
+});
 
 
 
