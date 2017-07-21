@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Haggle <%=items.name%></title>
+  </head>
+  <body>
+    <div class="wrapper">
+
+    <div class="userContainer">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+                  </tr>
+        <th>Item</th>
+        <th>Description</th>
+        </tr>
+      </thead>
+    <tbody>
+
+          <td><%=items.name%></td>
+    <td><%=items.description%></td>
+    <tr>
+
+
+      <td><center><img id ="searchImg" src="<%=items.img_url%>"></center></td>
+    </tr>
+
+</tbody>
+  </table>
+</div>
+
+<div class="haggleItemPage">
+
+  <div class="haggleItemPage">
+    <form action="/haggle" method="post">
+      <input type="hidden" name="seller_id" value="<%=items.seller_id%>">
+      <input type="hidden" name="item_id" value="<%=items.id%>">
+
+      <input type="number" id ="inputHaggle" name="haggle_price" class="form-control" placeholder="Enter a Haggle Price">
+    <center>
+
+ <button id ="submitHaggle"  class="btn btn-default">Haggle!</button>    </center>
+    </form>
+  </div>
+
+</div>
+
+
+  </body>
+
+
+</html>

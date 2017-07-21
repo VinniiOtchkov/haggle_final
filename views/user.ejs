@@ -1,0 +1,131 @@
+<div class="wrapper">
+  <div class="userContainer">
+
+    <div class="sellingInfo">
+      <table class="table table-hover">
+        <div class="title">Selling:</div>
+        <br>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Image</th>
+            <th>Item</th>
+            <th>Haggle $</th>
+            <th>Buyer Name</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <% for(var i = 0; i < selling.length; i++) { %>
+            <tr class="table-hover">
+              <td><img id="imgStuff" src="<%=selling[i].img_url%>">
+                <td>
+                  <td>
+                    <%=selling[i].item_name%>
+                  </td>
+                  <td>$
+                    <%=selling[i].haggle_price%>
+                  </td>
+                  <td>
+                    <%=selling[i].name%>
+                  </td>
+                  <td>
+                    <%=selling[i].status%>
+                      <br>
+
+                    <% if(selling[i].status_id == 1){%>
+
+
+                      <form action="/haggle/accept" method='post'>
+                          <input type="hidden" name ='haggle_id' value ='<%=selling[i].haggle_id%>'>
+                          <input type="submit" id ="userButton" class="btn btn-default" data-container="body" data-original-title="" title="" value='Accept'>
+                        </form>
+
+                        <form action="/haggle/reject" method='post'>
+                          <input type="hidden" name ='haggle_id' value ='<%=selling[i].haggle_id%>'>
+                          <input type="submit" id ="userButton" class="btn btn-default" data-container="body" data-original-title="" title="" value='Reject'>
+                        </form>
+
+
+                      <%}else if (selling[i].status_id ==2){%>
+
+                        <form action="mailto:<%=selling[i].email%>" method='post'>
+
+                          <input type="submit" id ="userButton" class="btn btn-default" data-container="body" data-original-title="" title="" value='Email Buyer'>
+                        </form>
+
+                      <%}%>
+
+                  </td>
+
+                  <td>
+                    <br>
+                    <form action="/items/edit" method="post">
+
+                      <a href="/items/edit">
+                        <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
+            sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="" aria-describedby="popover518581">Edit</button>
+            </a>
+                    </form>
+
+
+
+                    <a href="items/remove/:id">
+                        <button type="button" class="btn btn-default" data-container="body">Delete</button>
+            </a>
+                  </td>
+
+
+            </tr>
+
+            <% } %>
+
+        </tbody>
+
+      </table>
+    </div>
+    <div class="buyingInfo">
+      <table class="table table-hover">
+        <div class="title">Haggling:</div>
+        <br>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Image</th>
+            <th>Item</th>
+            <th>Haggle $</th>
+            <th>Seller Name</th>
+            <th>Location</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(var i = 0; i < buying.length; i++) { %>
+            <tr>
+              <td>
+                <img id="imgStuff" src="<%=buying[i].img_url%>" alt="">
+
+                <td>
+                  <td>
+                    <%=buying[i].item_name%>
+                  </td>
+                  <td>$
+                    <%=buying[i].haggle_price%>
+                  </td>
+                  <td>
+                    <%=buying[i].seller_name%>
+                  </td>
+                  <td>
+                    <%=buying[i].city%>
+                  </td>
+                  <td>
+                    <%=buying[i].status%>
+                  </td>
+            </tr>
+            <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

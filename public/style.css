@@ -1,0 +1,375 @@
+input[type=text], textarea {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #DDDDDD;
+}
+
+input[type=text]:focus, textarea:focus {
+  box-shadow: 0 0 5px #D64550;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #EA9E8D;
+}
+
+input[type=password], textarea {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #DDDDDD;
+}
+
+input[type=password]:focus, textarea:focus {
+  box-shadow: 0 0 5px #D64550;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #EA9E8D;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #C6C7C4;
+  background-size: cover;
+  position: fixed;
+  font-family: 'Work Sans', sans-serif;
+
+}
+
+select {
+  color: black;
+}
+
+.badge{
+  opacity: 1;
+  background-color: black;
+}
+
+
+
+.container-fluid {
+  background-image: url('/images/forest.jpg');
+  opacity: 0.7;
+  -webkit-backface-visibility: hidden;
+}
+
+.container-fluid img {
+  opacity: 0.5;
+}
+
+@media (min-height: 20px;
+) {
+  #logo {
+    margin-top: 5%;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.searchForm {
+  color: white;
+  width: 75%;
+  padding-left: 25%;
+}
+
+.newForm {
+  color: white;
+  width: 75%;
+  padding-left: 25%;
+}
+
+#navLabel:hover {}
+
+.navbar {
+  color: white;
+}
+
+#imgStuff{
+  max-width: 100px;
+  max-height: 100px;
+}
+
+
+a:hover {
+  opactiy: 0.9;
+  background-color: #8DAA9D;
+}
+
+#title {
+  color: black;
+  font-size: 20px;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.searchy{
+  color: black;
+  font-size: 20px;
+  font-family: 'Work Sans', sans-serif;
+}
+
+#titley{
+  font-size: 42px;
+  color: black;
+  font-family: 'Work Sans', sans-serif;
+  text-align: center;
+}
+
+#title:hover {
+  opacity: 0.9;
+}
+
+#navStuff {
+  color: black;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 18px;
+  opacity: 1;
+
+}
+
+#navStuff:hover {
+  opacity: 0.9;
+}
+
+#footStuff {
+  color: black;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 19px;
+  font-weight: bolder;
+  opacity: 1;
+}
+
+#footStuff:hover {
+opacity:0.9;
+}
+
+#logo {
+  height: 200px;
+  width: 300px;
+  margin-top: 5%;
+}
+
+button{
+border: none;
+outline: none;
+
+}
+
+.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
+    outline: 0;
+}
+
+
+#haggleButton:hover {
+  opacity: 0.85;
+
+}
+
+#haggleButton:active {
+  opacity: 0.8;
+
+}
+
+#haggleButton {
+  border: none;
+  opacity: 0.9;
+  font-weight: 300;
+
+
+}
+
+
+#navLabel {
+  font-weight: 100;
+  font-family: 'Work Sans', sans-serif;
+  opacity: 0;
+  font-weight: bolder;
+}
+
+.label {
+  font-weight: 200;
+}
+
+.form-control:hover {}
+
+.footer {
+  position: fixed;
+  height: 5%;
+  bottom: 0;
+  width: 100%;
+  background-image: url('/images/forest.jpg');
+  opacity: 0.7;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: bolder;
+}
+
+table {
+  background-color: white;
+  font-family: 'Work Sans', sans-serif;
+  border: none;
+  border-color: black;
+  color: black;
+opacity: 0.9;
+border-radius: 8px;
+border: none;
+
+}
+
+table-hover{
+  background-color: white;
+  font-family: 'Work Sans', sans-serif;
+  border: none;
+  border-color: black;
+opacity: 0.9;
+color: black;
+}
+
+table-hover:hover{
+  background-color: white;
+
+}
+
+.table>tbody>tr>td{
+  border: none;
+  background-color: white;
+
+}
+
+
+td, th{
+  border:none;
+  background-color: white;
+  border-radius: 8px;
+border: none;
+
+}
+
+
+
+.title {
+  font-size: 32px;
+  color: black;
+  font-family: 'Work Sans', sans-serif;
+  width: 50%;
+}
+
+.userContainer {
+  margin: 0px auto;
+  max-width: 90%;
+  max-height: 690px;
+  overflow: scroll;
+}
+
+
+#newItem{
+  height: 0%;
+  width: 0%;
+  opacity:0.9;
+font-size: 25px;
+  color: white;
+  font-family: 'Work Sans', sans-serif;
+  border: none;
+float: right;
+border-radius: 10px;
+margin-right: 30px;
+text-decoration: none;
+}
+
+#newItem:hover{
+  opacity: 0.8;
+
+}
+
+#newItem:active{
+  opacity: 0.75;
+
+}
+
+#userButtons:hover {
+  opacity: 0.85;
+
+}
+
+#userButtons:active {
+  opacity: 0.8;
+
+}
+
+#userButtons {
+  border: none;
+  opacity: 0.9;
+}
+
+#logoutButton{
+  float: right;
+}
+
+#haggleText {
+  font-weight: 300;
+}
+
+#imagey{
+  max-height: 150px;
+  max-width: 200px;
+}
+
+#submitHaggle{
+
+}
+#searchImg{
+  max-height: 600px;
+  max-width: 600px;
+}
+
+#inputHaggle{
+  width: 20%;
+  margin-left: 40%;
+}
+
+.searchResults img{
+  max-height: 10px;
+  max-width: 10px;
+}
+
+.searchResults {
+  text-align: center;
+  height: 50px;
+  width: 500px;
+  float: left;
+  background-color: white;
+  padding: 10px;
+}
+
+#signupText {
+  font-family: 'Work Sans', sans-serif;
+  margin-top: 6%;
+  margin-left: 20%;
+}
+
+#loginText {
+  font-family: 'Work Sans', sans-serif;
+  margin-top: 10%;
+  margin-left: 20%;
+}
+
+select {
+  color: black;
+}
+
+.scrolly {
+  overflow-y: scroll;
+  height: 500px;
+  width: 700px;
+}

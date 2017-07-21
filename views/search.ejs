@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Search</title>
+</head>
+
+<body>
+  <div class="wrapper">
+
+  <% if(items.length ==0) { %>
+    <h1><center>No results! Try again!</center></h1>
+
+    <% } else { %>
+      <center>
+        <div class="scrolly">
+          <table class="table table-hover">
+            <div class="title">Results:</div>
+            <br>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Image</th>
+                <th>Item</th>
+                <th>Initial Price</th>
+                <th>Seller Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(var i = 0; i < items.length; i++) { %>
+                <tr>
+                  <td>
+                    <a href="/items/<%=items[i].id%>">
+                    <img id="imgStuff" src="<%=items[i].img_url%>" alt="">
+                    </a>
+                    </td>
+                  <td>
+
+                      <td>
+                        <a href="/items/<%=items[i].id%>">
+
+                        <%=items[i].name%>
+                      </a>
+
+                      </td>
+                      <td>$
+                        <%=items[i].initial_price%>
+                      </td>
+                      <td>
+                        <%=items[i].description%>
+                      </td>
+
+                </tr>
+                <% } %>
+            </tbody>
+          </table>
+              <% } %>
+            </div>
+        </div>
+      </div>
+      </center>
+</body>
+
+</html>
