@@ -37,6 +37,7 @@ router.get('/login_redirect', function(req, res, next) {
 /* GET USER page. */
 router.get('/', function(req, res, next) {
   if (req.isAuthenticated()) {
+    console.log('THIS:',req.body);
     Promise.all([knex('seller_item_list')
       .select('users.name', 'users.email', 'statuses.status', 'seller_item_list.*')
       .leftJoin('users', 'seller_item_list.buyer_id', 'users.id')
