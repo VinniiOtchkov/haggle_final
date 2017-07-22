@@ -9,14 +9,19 @@
         <thead>
           <tr>
             <th></th>
-            <th>Image</th>
+            <th></th>
             <th>Item</th>
             <th>Haggle $</th>
             <th>Buyer Name</th>
             <th>Status</th>
           </tr>
         </thead>
-        <tbody>
+
+        <form action='items/addItem' method='get'>
+
+          <input type='submit' id ='addButton' class="btn btn-default" value='Add Item'>
+        </form>
+         <tbody>
 
           <% for(var i = 0; i < selling.length; i++) { %>
             <tr class="table-hover">
@@ -90,7 +95,7 @@
         <thead>
           <tr>
             <th></th>
-            <th>Image</th>
+            <th></th>
             <th>Item</th>
             <th>Haggle $</th>
             <th>Seller Name</th>
