@@ -8,8 +8,7 @@
         <br>
         <thead>
           <tr>
-            <th></th>
-            <th></th>
+            <th>Image</th>
             <th>Item</th>
             <th>Haggle $</th>
             <th>Buyer Name</th>
@@ -25,61 +24,54 @@
 
           <% for(var i = 0; i < selling.length; i++) { %>
             <tr class="table-hover">
-              <td><img id="imgStuff" src="<%=selling[i].img_url%>">
-                <td>
-                  <td>
-                    <%=selling[i].item_name%>
-                  </td>
-                  <td>$
-                    <%=selling[i].haggle_price%>
-                  </td>
-                  <td>
-                    <%=selling[i].name%>
-                  </td>
-                  <td>
-                    <%=selling[i].status%>
-                      <br>
+              <td>
+                <img id="imgStuff" src="<%=selling[i].img_url%>">
+              </td>
+              <td>
+                <%=selling[i].item_name%>
+              </td>
+              <td>$
+                <%=selling[i].haggle_price%>
+              </td>
+              <td>
+                <%=selling[i].name%>
+              </td>
+              <td>
+                <%=selling[i].status%>
+                  <br>
+                <% if(selling[i].status_id == 1){%>
+                  <form action="/haggle/accept" method='post'>
+                    <input type="hidden" name ='haggle_id' value ='<%=selling[i].haggle_id%>'>
+                    <input type="submit" id ="userButton" class="btn btn-default" data-container="body" value='Accept'>
+                  </form>
 
-                    <% if(selling[i].status_id == 1){%>
-
-
-                      <form action="/haggle/accept" method='post'>
-                          <input type="hidden" name ='haggle_id' value ='<%=selling[i].haggle_id%>'>
-                          <input type="submit" id ="userButton" class="btn btn-default" data-container="body" value='Accept'>
-                        </form>
-
-                        <form action="/haggle/reject" method='post'>
-                          <input type="hidden" name ='haggle_id' value ='<%=selling[i].haggle_id%>'>
-                          <input type="submit" id ="userButton" class="btn btn-default" data-container="body" value='Reject'>
-                        </form>
+                  <form action="/haggle/reject" method='post'>
+                    <input type="hidden" name ='haggle_id' value ='<%=selling[i].haggle_id%>'>
+                    <input type="submit" id ="userButton" class="btn btn-default" data-container="body" value='Reject'>
+                  </form>
 
 
-                      <%}else if (selling[i].status_id ==2){%>
+                <%}else if (selling[i].status_id ==2){%>
 
-                        <form action="mailto:<%=selling[i].email%>" method='post'>
+                  <form action="mailto:<%=selling[i].email%>" method='post'>
 
-                          <input type="submit" id ="userButton" class="btn btn-default" data-container="body" data-original-title="" title="" value='Email Buyer'>
-                        </form>
+                    <input type="submit" id ="userButton" class="btn btn-default" data-container="body" data-original-title="" title="" value='Email Buyer'>
+                  </form>
 
-                      <%}%>
+                <%}%>
 
-                  </td>
+              </td>
 
-                  <td>
-                    <br>
-
-
-                      <a href="/items/edit">
-                        <button type="button" class="btn btn-default" data-container="body">Edit</button>
-                        </a>
-
-                    <a href="/items/remove/<%=selling[i].id%>">
-                      <%console.log(selling[i].id)%>
-                        <button type="button" class="btn btn-default" data-container="body">Delete</button>
-            </a>
-                  </td>
-
-
+              <td>
+                <br>
+                <a href="/items/edit">
+                  <button type="button" class="btn btn-default" data-container="body">Edit</button>
+                </a>
+                <a href="/items/remove/<%=selling[i].id%>">
+                  <%console.log(selling[i].id)%>
+                  <button type="button" class="btn btn-default" data-container="body">Delete</button>
+                </a>
+              </td>
             </tr>
 
             <% } %>
@@ -94,8 +86,7 @@
         <br>
         <thead>
           <tr>
-            <th></th>
-            <th></th>
+            <th>Image</th>
             <th>Item</th>
             <th>Haggle $</th>
             <th>Seller Name</th>
@@ -108,32 +99,30 @@
             <tr>
               <td>
                 <img id="imgStuff" src="<%=buying[i].img_url%>" alt="">
-
-                <td>
-                  <td>
-                    <%=buying[i].item_name%>
-                  </td>
-                  <td>$
-                    <%=buying[i].haggle_price%>
-                  </td>
-                  <td>
-                    <%=buying[i].seller_name%>
-                  </td>
-                  <td>
-                    <%=buying[i].city%>
-                  </td>
-                  <td>
-                    <%=buying[i].status%>
-                  </td>
+              </td>
+              <td>
+                <%=buying[i].item_name%>
+              </td>
+              <td>$
+                <%=buying[i].haggle_price%>
+              </td>
+              <td>
+                <%=buying[i].seller_name%>
+              </td>
+              <td>
+                <%=buying[i].city%>
+              </td>
+              <td>
+                <%=buying[i].status%>
+              </td>
             </tr>
             <% } %>
 
         </tbody>
       </table>
       <a href = '/user/logout'>
-
-  <button type="button" type ="submit" id ="logoutButton" class="btn btn-default" data-container="body">Log Out</button>
-</a>
+        <button type="button" type ="submit" id ="logoutButton" class="btn btn-default" data-container="body">Log Out</button>
+      </a>
     </div>
   </div>
 </div>
