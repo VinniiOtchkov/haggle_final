@@ -16,7 +16,7 @@ router.post('/', function(req, res, next) {
 router.post('/search', function(req, res, next) {
 
   knex.raw(`select i.id, i.img_url, i.name, i.description, i.initial_price, i.sold, l.city, l.id location_id, u.name seller_name from items i join users u on i.seller_id = u.id join locations l on u.location_id = l.id
-            where lower(i.name) like lower('%${req.body.name}%' and sold = false order by city`)
+            where lower(i.name) like lower('%${req.body.name}%') and sold = false order by city`)
     .then(function(data) {
       res.render('search', {
         items: data.rows
