@@ -4,26 +4,21 @@ var knex = require('../db/knex');
 
 /* GET all items by location. */
 router.post('/', function(req, res, next) {
-  knex('items_by_location')
-    .select()
-    .where('location_id', req.body.location_id)
-    .andWhere('sold', false)
+  knex.raw(`select i.id, i.img_url, i.name, i.description, i.initial_price, i.sold, l.city, l.id location_id, u.name seller_name from items i join users u on i.seller_id = u.id join locations l on u.location_id = l.id
+            where location_id = ${req.body.location_id} and sold = false`)
     .then(data => {
-      res.send(data);
+      res.send(data.rows);
     })
 });
 
 //Search for specific items by location
 router.post('/search', function(req, res, next) {
 
-  knex('items_by_location')
-    .select()
-    .whereRaw(`lower(name) like lower('%${req.body.name}%')`)
-    .andWhere('sold', false)
-    .orderBy('city')
+  knex.raw(`select i.id, i.img_url, i.name, i.description, i.initial_price, i.sold, l.city, l.id location_id, u.name seller_name from items i join users u on i.seller_id = u.id join locations l on u.location_id = l.id
+            where lower(i.name) like lower('%${req.body.name}%' and sold = false order by city`)
     .then(function(data) {
       res.render('search', {
-        items: data
+        items: data.rows
       });
     });
 });
@@ -71,7 +66,7 @@ router.post('/addItem', function(req, res, next) {
 router.get('/edit', function(req, res) {
   knex.raw(`select * from items WHERE id = ${req.params.id}`).then(function(items) {
     res.render('editItem', {
-      items: items.rows[0]
+      items: items[0].rows
     });
   });
 });
