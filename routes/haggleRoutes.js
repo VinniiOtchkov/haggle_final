@@ -13,7 +13,7 @@ router.post('/update', function(req, res, next) {
 
 
 router.post('/accept',function(req,res,next){
-  console.log('Quote req body for haggle accept:',req.body);
+  //console.log('Quote req body for haggle accept:',req.body);
   knex('haggles')
   .update({
     status_id: 2

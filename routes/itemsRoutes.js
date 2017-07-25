@@ -32,7 +32,7 @@ router.get('/addItem', function(req, res, next) {
 
 // /* Remove Item. */
 router.get('/remove/:id', function(req, res, next) {
-  console.log(req.body.id);
+  //console.log(req.body.id);
   knex('items')
     .delete()
     .where('id', req.body.id)

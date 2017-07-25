@@ -50,7 +50,7 @@ join users u on u.id = b.buyer_id where b.buyer_id = ${req.user.id}`),
       .select('name')
       .where('users.id', req.user.id),
     ]).then(function (users) {
-      //console.log(users[0])
+      console.log(users[0])
       res.render('user', {
         selling: users[0].rows,
         buying: users[1].rows,
