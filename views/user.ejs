@@ -25,10 +25,14 @@
           <% for(var i = 0; i < selling.length; i++) { %>
             <tr class="table-hover">
               <td>
-                <img id="imgStuff" src="<%=selling[i].img_url%>">
+                <a href='/items/<%=selling[i].itemid%>'>
+                  <img id="imgStuff" src="<%=selling[i].img_url%>">
+                </a>
               </td>
               <td>
-                <%=selling[i].item_name%>
+                <a href='/items/<%=selling[i].itemid%>'>
+                  <%=selling[i].item_name%>
+                </a>
               </td>
               <td>$
                 <%=selling[i].haggle_price%>
@@ -100,7 +104,7 @@
                 <img id="imgStuff" src="<%=buying[i].img_url%>" alt="">
               </td>
               <td>
-                <%=buying[i].item_name%>
+                  <%=buying[i].item_name%>
               </td>
               <td>$
                 <%=buying[i].haggle_price%>

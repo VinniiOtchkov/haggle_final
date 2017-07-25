@@ -38,7 +38,7 @@ router.get('/login_redirect', function (req, res, next) {
 router.get('/', function (req, res, next) {
   if (req.isAuthenticated()) {
     Promise.all([knex.raw(`select u.name, u.email, st.status, s.*
-from (select u2.email, h.id haggle_id, h.name item_name, h.seller_id, h.haggle_price, h.buyer_id, h.status_id, h.img_url, u.name seller_name from users u right join (select h.item_id, i.seller_id, h.id, i.name, i.description, i.img_url, i.initial_price, h.haggle_price, h.buyer_id,
+from (select u2.email, h.id haggle_id, h.itemid, h.name item_name, h.seller_id, h.haggle_price, h.buyer_id, h.status_id, h.img_url, u.name seller_name from users u right join (select h.item_id, i.seller_id, h.id, i.name, i.id itemid, i.description, i.img_url, i.initial_price, h.haggle_price, h.buyer_id,
 h.status_id from items i left join haggles h on i.id = h.item_id) h on u.id = h.seller_id left join users u2 on h.buyer_id = u2.id) s
 left join users u on s.buyer_id = u.id
 left Join statuses st on s.status_id = st.id where s.seller_id = ${req.user.id}`),
@@ -50,7 +50,7 @@ join users u on u.id = b.buyer_id where b.buyer_id = ${req.user.id}`),
       .select('name')
       .where('users.id', req.user.id),
     ]).then(function (users) {
-      console.log(users[0])
+      //console.log(users[0])
       res.render('user', {
         selling: users[0].rows,
         buying: users[1].rows,
