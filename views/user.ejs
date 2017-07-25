@@ -1,5 +1,6 @@
 <div class="wrapper">
   <div class="userContainer">
+    <title>Profile</title>
 
     <div class="sellingInfo">
       <table class="table table-hover">
@@ -8,14 +9,19 @@
         <thead>
           <tr>
             <th></th>
-            <th>Image</th>
+            <th></th>
             <th>Item</th>
             <th>Haggle $</th>
             <th>Buyer Name</th>
             <th>Status</th>
           </tr>
         </thead>
-        <tbody>
+
+        <form action='items/addItem' method='get'>
+
+          <input type='submit' id ='addButton' class="btn btn-default" value='Add Item'>
+        </form>
+         <tbody>
 
           <% for(var i = 0; i < selling.length; i++) { %>
             <tr class="table-hover">
@@ -39,12 +45,12 @@
 
                       <form action="/haggle/accept" method='post'>
                           <input type="hidden" name ='haggle_id' value ='<%=selling[i].haggle_id%>'>
-                          <input type="submit" id ="userButton" class="btn btn-default" data-container="body" data-original-title="" title="" value='Accept'>
+                          <input type="submit" id ="userButton" class="btn btn-default" data-container="body" value='Accept'>
                         </form>
 
                         <form action="/haggle/reject" method='post'>
                           <input type="hidden" name ='haggle_id' value ='<%=selling[i].haggle_id%>'>
-                          <input type="submit" id ="userButton" class="btn btn-default" data-container="body" data-original-title="" title="" value='Reject'>
+                          <input type="submit" id ="userButton" class="btn btn-default" data-container="body" value='Reject'>
                         </form>
 
 
@@ -61,17 +67,14 @@
 
                   <td>
                     <br>
-                    <form action="/items/edit" method="post">
+
 
                       <a href="/items/edit">
-                        <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
-            sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="" aria-describedby="popover518581">Edit</button>
-            </a>
-                    </form>
+                        <button type="button" class="btn btn-default" data-container="body">Edit</button>
+                        </a>
 
-
-
-                    <a href="items/remove/:id">
+                    <a href="/items/remove/<%=selling[i].id%>">
+                      <%console.log(selling[i].id)%>
                         <button type="button" class="btn btn-default" data-container="body">Delete</button>
             </a>
                   </td>
@@ -92,7 +95,7 @@
         <thead>
           <tr>
             <th></th>
-            <th>Image</th>
+            <th></th>
             <th>Item</th>
             <th>Haggle $</th>
             <th>Seller Name</th>
