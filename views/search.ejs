@@ -20,8 +20,7 @@
             <br>
             <thead>
               <tr>
-                <th></th>
-                <th></th>
+                <th>Image</th>
                 <th>Item</th>
                 <th>Initial Price</th>
                 <th>Seller Name</th>
@@ -34,23 +33,20 @@
                     <a href="/items/<%=items[i].id%>">
                     <img id="imgStuff" src="<%=items[i].img_url%>" alt="">
                     </a>
-                    </td>
+                  </td>
                   <td>
+                    <a href="/items/<%=items[i].id%>">
 
-                      <td>
-                        <a href="/items/<%=items[i].id%>">
+                    <%=items[i].name%>
+                    </a>
 
-                        <%=items[i].name%>
-                      </a>
-
-                      </td>
-                      <td>$
-                        <%=items[i].initial_price%>
-                      </td>
-                      <td>
-                        <%=items[i].description%>
-                      </td>
-
+                  </td>
+                  <td>$
+                    <%=items[i].initial_price%>
+                  </td>
+                  <td>
+                    <%=items[i].seller_name%>
+                  </td>
                 </tr>
                 <% } %>
             </tbody>
